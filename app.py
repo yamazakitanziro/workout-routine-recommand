@@ -1,3 +1,4 @@
+```notebook-python
 import streamlit as st
 st.title("🏋️ 운동 루틴 추천기")
 st.write("나에게 맞는 운동 루틴을 찾아보세요!")
@@ -93,3 +94,18 @@ if st.button("추천 받기 버튼"):
     st.write(f"{레벨선택}/{운동부위} 선택하셨습니다")
     for i in 결과:
         st.write(f"✅{i}")
+
+개수 = {
+    "전신": len(루틴[레벨선택]["전신"]),
+    "상체": len(루틴[레벨선택]["상체"]),
+    "하체": len(루틴[레벨선택]["하체"])
+}
+
+# pandas DataFrame으로 변환 후 차트
+import pandas as pd
+df = pd.DataFrame.from_dict(개수, orient='index', columns=["운동 수"])
+#키(전신,산,하)가 열(index)가 되고   st.bar_chart(df)에서 index가 x축, columns가 y축이된다
+st.bar_chart(df)
+
+
+```

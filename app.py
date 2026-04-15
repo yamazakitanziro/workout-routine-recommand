@@ -107,4 +107,3 @@ df = pd.DataFrame.from_dict(개수, orient='index', columns=["운동 수"])
 st.bar_chart(df)
 
 
-```
